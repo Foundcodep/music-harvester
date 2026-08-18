@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  music-harvester:
+    image: ghcr.io/foundcodep/music-harvester:latest
+    container_name: music-harvester
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    volumes:
+      - /vol2/1000/openclaw/music:/music
+    environment:
+      - MUSIC_DIR=/music
+      - TZ=Asia/Shanghai
